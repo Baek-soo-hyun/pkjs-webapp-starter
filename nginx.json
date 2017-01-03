@@ -1,8 +1,9 @@
 {
+	"listen": 80,
 	"server_name": [
-		"localhost"
+		"example.com",
+		"www.example.com"
 	],
-	"listen": 82,
 	"statics": [
 		{
 			"location": "/",
@@ -16,7 +17,7 @@
 			"backends": [
 				{
 					"address": "127.0.0.1",
-					"port": 8280
+					"port": 8080
 				}
 			]
 		}
