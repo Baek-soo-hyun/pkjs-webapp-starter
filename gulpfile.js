@@ -26,6 +26,8 @@ var hbsGlobalConfig = pkg['pkjs-configs'].globals;
 
 var less = require('gulp-less');
 
+var nginxer = require('gulp-nginxer');
+
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
@@ -259,6 +261,12 @@ gulp.task('archive', function (done) {
         'archive:create_archive_dir',
         'archive:zip',
     done);
+});
+
+gulp.task('nginx', function() {
+	return gulp.src('nginx.json')
+		.pipe(nginxer())
+		.pipe(gulp.dest('nginx'));
 });
 
 gulp.task('build', function (done) {

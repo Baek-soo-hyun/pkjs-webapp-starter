@@ -1,15 +1,16 @@
 {
   "server_name": [
-    "example.com",
-    "www.example.com"
+    "localhost"
   ],
 
+	"listen": 82,
+
   "proxys": [{
-    "location": "/",
+    "location": "/api/",
     "backends_name": "backend",
     "backends": [{
       "address":        "127.0.0.1",
-      "port":           8080
+      "port":           8280
     }]
   }],
 
