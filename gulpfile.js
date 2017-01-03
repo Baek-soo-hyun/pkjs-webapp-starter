@@ -266,7 +266,7 @@ gulp.task('archive', function (done) {
 gulp.task('nginx', function() {
 	return gulp.src('nginx.json')
 		.pipe(nginxer())
-		.pipe(gulp.dest('nginx'));
+		.pipe(gulp.dest(''));
 });
 
 gulp.task('build', function (done) {

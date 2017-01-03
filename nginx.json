@@ -1,20 +1,21 @@
 {
-  "server_name": [
-    "localhost"
-  ],
-
+	"server_name": [
+		"localhost"
+	],
 	"listen": 82,
-
-  "proxys": [{
-    "location": "/api/",
-    "backends_name": "backend",
-    "backends": [{
-      "address":        "127.0.0.1",
-      "port":           8280
-    }]
-  }],
-
-  "globals": {
-    "trust_proxy": true
-  }
+	"proxys": [
+		{
+			"location": "/api/",
+			"backends_name": "backend",
+			"backends": [
+				{
+					"address": "127.0.0.1",
+					"port": 8280
+				}
+			]
+		}
+	],
+	"globals": {
+		"trust_proxy": true
+	}
 }
