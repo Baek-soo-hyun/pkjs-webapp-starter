@@ -2,7 +2,7 @@
 	"server_name": [
 		"localhost"
 	],
-	"listen": 82,
+	"listen": 80,
 	"proxys": [
 		{
 			"location": "/api/",
@@ -10,7 +10,7 @@
 			"backends": [
 				{
 					"address": "127.0.0.1",
-					"port": 8280
+					"port": 8080
 				}
 			]
 		}
