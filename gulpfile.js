@@ -17,8 +17,8 @@ var dirs = pkg['pkjs-configs'].directories;
 
 var eslint = require('gulp-eslint');
 
-var uglify = require('gulp-uglify');
 var pump = require('pump');
+var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-html-minifier');
 
 var handlebars = require('gulp-compile-handlebars');
@@ -90,10 +90,11 @@ gulp.task('lint', function() {
 
 gulp.task('copy', [
     'copy:requirejs',
+	//'copy:google-closure-library',
     'copy:jquery',
     'copy:normalize',
     'copy:bootstrap',
-    'copy:font-awesome',
+	'copy:font-awesome',
     'copy:clipboard',
     'copy:license',
     'copy:img',
@@ -115,18 +116,28 @@ gulp.task('copy:requirejs', function() {
     );
 });
 
+gulp.task('copy:google-closure-library', function() {
+	return all(
+		gulp.src(['node_modules/google-closure-library/closure/css/**/*.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/google-closure-library/css')),
+		gulp.src(['node_modules/google-closure-library/closure/goog/**/*.js'])
+			.pipe(uglify())
+			.pipe(gulp.dest(dirs.dist + '/plugins/google-closure-library/js/goog'))
+	);
+});
+
 gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
                .pipe(gulp.dest(dirs.dist + '/plugins/jquery'));
 });
 
 gulp.task('copy:font-awesome', function() {
-   return all(
-        gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'])
-            .pipe(gulp.dest(dirs.dist + '/plugins/font-awesome/css')),
-        gulp.src(['node_modules/font-awesome/fonts/*'])
-            .pipe(gulp.dest(dirs.dist + '/plugins/font-awesome/fonts'))
-   ) ;
+	return all(
+		gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/font-awesome/css')),
+		gulp.src(['node_modules/font-awesome/fonts/*'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/font-awesome/fonts'))
+	) ;
 });
 
 gulp.task('copy:normalize', function () {

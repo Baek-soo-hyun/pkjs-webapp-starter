@@ -15,8 +15,7 @@
     }
   },
   "scripts": {
-    "build": "gulp build",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "build": "gulp build"
   },
   "devDependencies": {
     "@alrra/travis-scripts": "^1.1.1",
@@ -28,6 +27,7 @@
     "eslint-config-google": "^0.7.1",
     "font-awesome": "4.7.0",
     "glob": "^6.0.1",
+    "google-closure-library": "^20161201.0.0",
     "gulp": "^3.9.1",
     "gulp-all": "^1.1.0",
     "gulp-autoprefixer": "^3.0.2",
