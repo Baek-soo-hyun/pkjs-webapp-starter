@@ -2,7 +2,7 @@ archive
 node_modules
 dist
 
-nginx.conf
+*.conf
 
 *.java.hsp
 *.sonarj
