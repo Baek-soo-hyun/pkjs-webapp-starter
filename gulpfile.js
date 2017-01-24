@@ -25,6 +25,7 @@ var handlebars = require('gulp-compile-handlebars');
 var hbsGlobalConfig = pkg['pkjs-configs'].globals;
 
 var less = require('gulp-less');
+var autoprefix = require('less-plugin-autoprefix');
 
 var nginxer = require('gulp-nginxer');
 
@@ -222,6 +223,9 @@ gulp.task('html:dynamic', function() {
         		for (var attr in options.hash) {
         			this[attr] = options[attr];
 				}
+			},
+			eq: function(left, right) {
+				return left === right;
 			}
 		}
     };
@@ -245,12 +249,11 @@ gulp.task('html:dynamic', function() {
 gulp.task('css', function () {
     return gulp.src([dirs.src + '/styles/**/*.less',
         '!' + dirs.src + '/styles/lib/**/*.less'])
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-            cascade: false
-        }))
         .pipe(less({
-            compress: true
+            compress: true,
+			plugins: [new autoprefix({
+				browsers: ['last 2 versions', 'ie >= 8', '> 1%']
+			})]
         }))
         .pipe(plugins.rename(function(path) {
             path.extname = '.css';
