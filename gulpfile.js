@@ -90,8 +90,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('copy', [
-    'copy:requirejs',
-	//'copy:google-closure-library',
+	'copy:requirejs',
+	'copy:url-search-params',
     'copy:jquery',
     'copy:normalize',
     'copy:bootstrap',
@@ -117,14 +117,9 @@ gulp.task('copy:requirejs', function() {
     );
 });
 
-gulp.task('copy:google-closure-library', function() {
-	return all(
-		gulp.src(['node_modules/google-closure-library/closure/css/**/*.css'])
-			.pipe(gulp.dest(dirs.dist + '/plugins/google-closure-library/css')),
-		gulp.src(['node_modules/google-closure-library/closure/goog/**/*.js'])
-			.pipe(uglify())
-			.pipe(gulp.dest(dirs.dist + '/plugins/google-closure-library/js/goog'))
-	);
+gulp.task('copy:url-search-params', function() {
+	return gulp.src('node_modules/url-search-params/build/url-search-params.js')
+		.pipe(gulp.dest(dirs.dist + '/plugins/url-search-params'));
 });
 
 gulp.task('copy:jquery', function () {

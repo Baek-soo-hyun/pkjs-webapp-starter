@@ -1,6 +1,6 @@
 {
   "name": "pkjs-webapp-starter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "http://pkjs.io/",
   "license": "MIT",
   "private": true,
@@ -27,7 +27,6 @@
     "eslint-config-google": "^0.7.1",
     "font-awesome": "4.7.0",
     "glob": "^6.0.1",
-    "google-closure-library": "^20161201.0.0",
     "gulp": "^3.9.1",
     "gulp-all": "^1.1.0",
     "gulp-autoprefixer": "^3.0.2",
@@ -48,7 +47,8 @@
     "normalize.css": "3.0.3",
     "pump": "^1.0.1",
     "requirejs": "^2.3.2",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.2",
+    "url-search-params": "^0.6.1"
   },
   "engines": {
     "node": ">=0.10.0"

@@ -4,6 +4,8 @@ require.config({
     paths: {
         "async"         : "/plugins/requirejs/async",
 
+		"urlsearchparams" : "/plugins/url-search-params/url-search-params",
+
         "jquery"        : "/plugins/jquery/jquery.min",
         "bootstrap"     : "/plugins/bootstrap/js/bootstrap.min",
         "clipboard"     : "/plugins/clipboard/clipboard.min",
@@ -17,5 +19,5 @@ require.config({
         },
     },
 
-    deps: [],
+    deps: ["urlsearchparams"],
 });
